@@ -1,0 +1,205 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Fresh Tomatoes!</title>
+
+    <!-- Bootstrap 3 -->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap-theme.min.css">
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <style type="text/css" media="screen">
+        body {
+            padding-top: 80px;
+        }
+        #trailer .modal-dialog {
+            margin-top: 200px;
+            width: 640px;
+            height: 480px;
+        }
+        .hanging-close {
+            position: absolute;
+            top: -12px;
+            right: -12px;
+            z-index: 9001;
+        }
+        #trailer-video {
+            width: 100%;
+            height: 100%;
+        }
+        .movie-tile {
+            margin-bottom: 20px;
+            padding-top: 20px;
+        }
+        .movie-tile:hover {
+            background-color: #EEE;
+            cursor: pointer;
+        }
+        .scale-media {
+            padding-bottom: 56.25%;
+            position: relative;
+        }
+        .scale-media iframe {
+            border: none;
+            height: 100%;
+            position: absolute;
+            width: 100%;
+            left: 0;
+            top: 0;
+            background-color: white;
+        }
+    </style>
+    <script type="text/javascript" charset="utf-8">
+        // Pause the video when the modal is closed
+        $(document).on('click', '.hanging-close, .modal-backdrop, .modal', function (event) {
+            // Remove the src so the player itself gets removed, as this is the only
+            // reliable way to ensure the video stops playing in IE
+            $("#trailer-video-container").empty();
+        });
+        // Start playing the video whenever the trailer modal is opened
+        $(document).on('click', '.movie-tile', function (event) {
+            var trailerYouTubeId = $(this).attr('data-trailer-youtube-id')
+            var sourceUrl = 'http://www.youtube.com/embed/' + trailerYouTubeId + '?autoplay=1&html5=1';
+            $("#trailer-video-container").empty().append($("<iframe></iframe>", {
+              'id': 'trailer-video',
+              'type': 'text-html',
+              'src': sourceUrl,
+              'frameborder': 0
+            }));
+        });
+        // Animate in the movies when the page loads
+        $(document).ready(function () {
+          $('.movie-tile').hide().first().show("fast", function showNext() {
+            $(this).next("div").show("fast", showNext);
+          });
+        });
+    </script>
+</head>
+
+  <body>
+    <!-- Trailer Video Modal -->
+    <div class="modal" id="trailer">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <a href="#" class="hanging-close" data-dismiss="modal" aria-hidden="true">
+            <img src="https://lh5.ggpht.com/v4-628SilF0HtHuHdu5EzxD7WRqOrrTIDi_MhEG6_qkNtUK5Wg7KPkofp_VJoF7RS2LhxwEFCO1ICHZlc-o_=s0#w=24&h=24"/>
+          </a>
+          <div class="scale-media" id="trailer-video-container">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Page Content -->
+    <div class="container">
+      <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">Fresh Tomatoes Movie Trailers</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="owK1qxDselE" data-toggle="modal" data-target="#trailer">
+    <img src="http://orig12.deviantart.net/62a7/f/2013/076/4/8/gladiator___fanmade_poster_by_kc_eazyworld-d5ycg6p.jpg" width="220" height="342">
+    <h2>Gladiator</h2>
+    <h3>Starring Russel Crowe</h3>
+    <p>A betrayed soldier avenges his family</p>
+    <span>Produced by Universal</span>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="ZeUSo8voIXM" data-toggle="modal" data-target="#trailer">
+    <img src="http://www.impawards.com/2005/posters/wedding_crashers_ver1.jpg" width="220" height="342">
+    <h2>Wedding Crashers</h2>
+    <h3>Starring Owen Wilson</h3>
+    <p>Two friends enjoy crashing summer weddings</p>
+    <span>Produced by New Line Cinema</span>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="RK8xHq6dfAo" data-toggle="modal" data-target="#trailer">
+    <img src="http://www.impawards.com/2016/posters/hidden_figures.jpg" width="220" height="342">
+    <h2>Hidden Figures</h2>
+    <h3>Starring Octavia Spencer</h3>
+    <p>A group of black women overcome racism to help NASA lunar missions</p>
+    <span>Produced by 20th Century Fox</span>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="V75dMMIW2B4" data-toggle="modal" data-target="#trailer">
+    <img src="http://www.movieartarena.com/imgs/lotr1final.jpg" width="220" height="342">
+    <h2>Lord of the Rings</h2>
+    <h3>Starring Elijah Wood</h3>
+    <p>A young hobit must travel to middle earth to destroy a powerful weapon</p>
+    <span>Produced by New Line Cinema</span>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="S5CjKEFb-sM" data-toggle="modal" data-target="#trailer">
+    <img src="http://www.impawards.com/2014/posters/imitation_game_ver6_xxlg.jpg" width="220" height="342">
+    <h2>Imitation Game</h2>
+    <h3>Starring B Cumberbatch</h3>
+    <p>A peculiar mathematician breaks the German Enigma in WWII, and invents first computer</p>
+    <span>Produced by The Weinstein Company</span>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="pkqzFUhGPJg" data-toggle="modal" data-target="#trailer">
+    <img src="https://vignette3.wikia.nocookie.net/disney/images/a/a6/Up_Poster_Run.jpg/revision/latest?cb=20160202180816" width="220" height="342">
+    <h2>Up</h2>
+    <h3>Starring Ed Asner</h3>
+    <p>A young boy takes an old man on an adventure</p>
+    <span>Produced by Disney</span>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="8hYlB38asDY" data-toggle="modal" data-target="#trailer">
+    <img src="http://cdn.collider.com/wp-content/uploads/2015/04/iron-man-1-poster.jpg" width="220" height="342">
+    <h2>Iron Man</h2>
+    <h3>Starring Robert Downey Jr.</h3>
+    <p>Marvel Hero, Tony Stark, invents the iron man suit</p>
+    <span>Produced by Paramount</span>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="EXeTwQWrcwY" data-toggle="modal" data-target="#trailer">
+    <img src="http://paulmmartinblog.files.wordpress.com/2011/07/the_dark_knight_poster.jpg" width="220" height="342">
+    <h2>The Dark Night</h2>
+    <h3>Starring Christian Bale</h3>
+    <p>A peculiar young mathematician breaks the German Enigma in WWII, and invents first computer</p>
+    <span>Produced by Warner Bros.</span>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="PbdM1db3JbY" data-toggle="modal" data-target="#trailer">
+    <img src="http://harrypotterfanzone.com/wp-content/2015/07/chamber-of-secrets-theatrical-poster.jpg" width="220" height="342">
+    <h2>Harry Potter</h2>
+    <h3>Starring Daniel Radcliff</h3>
+    <p>A special boy is chosen to bring down the dark lord</p>
+    <span>Produced by Warner Bros.</span>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="QOQLeqRcgKc" data-toggle="modal" data-target="#trailer">
+    <img src="https://www.popoptiq.com/wp-content/uploads/2011/08/Senna-Poster.jpg" width="220" height="342">
+    <h2>Senna</h2>
+    <h3>Starring Ayrton Senna</h3>
+    <p>The story of legendary F1 driver, Ayrton Senna</p>
+    <span>Produced by Universal</span>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="x9Nl39uWEYk" data-toggle="modal" data-target="#trailer">
+    <img src="https://images-na.ssl-images-amazon.com/images/I/51qVp-dXLgL.jpg" width="220" height="342">
+    <h2>Caddy Shack</h2>
+    <h3>Starring Bill Murray</h3>
+    <p>A lazy greens keeper spoofs the country club lifestyle</p>
+    <span>Produced by Warner Bros.</span>
+</div>
+
+<div class="col-md-6 col-lg-4 movie-tile text-center" data-trailer-youtube-id="1l1lzzfpWFU" data-toggle="modal" data-target="#trailer">
+    <img src="http://www.impawards.com/2005/posters/constant_gardener.jpg" width="220" height="342">
+    <h2>The Constant Gardener</h2>
+    <h3>Starring Ralph Fiennes</h3>
+    <p>A man navigates violent crime rings in Kenya to pursue his love</p>
+    <span>Produced by Focus Features</span>
+</div>
+
+    </div>
+  </body>
+</html>
